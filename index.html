@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<section class="container__game">
+    <h1 class="game__title">Adivina el número</h1>
+    <form class="game__Form">
+        <label for="userlabel">Introduce un número:</label>
+        <input class="userNumber js__userNumber"  type="text" id="guessNumber" required>
+        <input class="js__gameButton" type="submit" value="Prueba" id="playButton">
+    </form>
+    <p class="game__message js__gameMessage">Pista: Escribe el número y dale a prueba</p>
+
+    <p class="attemps__message">Número de intentos: <span class="attemps js__attempsCounter">0</span></p>
+
+</section>
+<script src="./Js/main.js"></script>
+</body>
+</html>
