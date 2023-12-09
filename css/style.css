@@ -1,0 +1,33 @@
+
+
+
+body{
+    margin:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(138, 227, 236);
+}
+
+.container__game{
+    text-align: center;
+}
+
+.game__Form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.js__gameButton {
+    margin-top: 10px;
+    padding: 10px 10px;
+    font-size: 16px;
+    background-color: #f8b73f; 
+    border: none;
+    cursor: pointer;
+}
+
+
+
