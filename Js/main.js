@@ -6,6 +6,7 @@ const buttonForm = document.querySelector('.js__buttonForm');
 const userNumberInput = document.querySelector('.js__userNumberInput');
 const messageClue = document.querySelector('.js__messageClue');
 const counter = document.querySelector('.js__counter');
+const resetButton = document.querySelector('.js__resetButton');
 
 // VARIABLES DE DATOS
 
@@ -44,6 +45,8 @@ function checkNumbers(userNumber,randomNumber){
     counter.innerHTML = numbercounter;
 };
 
+//Función para resetear el juego
+
 
 //FUNCIONES DE EVENTOS(HANDLERS)
 
@@ -58,9 +61,12 @@ function handleClickButtonForm(event) {
     updateCounter();
 };
 
+//Función manejadora del click del botón de reset
+
 // EVENTOS
 
 buttonForm.addEventListener('click', handleClickButtonForm);
+resetButton.addEventListener('click',handleclickResetButton);
 
 // AL CARGAR LA PÁGINA
 
