@@ -10,7 +10,7 @@ const resetButton = document.querySelector('.js__resetButton');
 
 // VARIABLES DE DATOS
 
-const randomNumber= getRandomNumber(100);
+let randomNumber= getRandomNumber(100);
 console.log(randomNumber);
 let numbercounter = '';
 
@@ -46,7 +46,14 @@ function checkNumbers(userNumber,randomNumber){
 };
 
 //Función para resetear el juego
-
+function resetGame(){
+    randomNumber= getRandomNumber(100);
+    console.log(randomNumber);
+    numbercounter = 0;
+    counter.innerHTML = numbercounter;
+    messageClue.innerHTML = 'Pista: Escribe el número y dale a Prueba';
+    userNumberInput.value = '';
+}
 
 //FUNCIONES DE EVENTOS(HANDLERS)
 
@@ -62,6 +69,9 @@ function handleClickButtonForm(event) {
 };
 
 //Función manejadora del click del botón de reset
+function handleclickResetButton(event) {
+    resetGame();
+};
 
 // EVENTOS
 
