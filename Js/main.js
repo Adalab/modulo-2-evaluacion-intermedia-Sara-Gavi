@@ -1,48 +1,71 @@
 'use strict'
 
-//QUERY SELECTORS
-const userNumber = document.querySelector('.js__userNumber');
-const gameButton = document.querySelector('.js__gameButton');
-const gameMessage = document.querySelector('.js__gameMessage');
-const attempsCounter = document.querySelector('.js__attempsCounter');
+// QUERY SELECTORS
+const Form = document.querySelector('.js__form');
+const buttonForm = document.querySelector('.js__buttonForm');
+const userNumberInput = document.querySelector('.js__userNumberInput');
+const messageClue = document.querySelector('.js__messageClue');
+const counter = document.querySelector('.js__counter');
 
 // VARIABLES DE DATOS
 
-let attemps = 0; 
+const randomNumber= getRandomNumber(100);
+console.log(randomNumber);
+let numbercounter = '';
 
 // FUNCIONES
 
-
-//Generamos número aleatorio
+//Función para generar el número aleatorio del ordenador
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
-}
+    };
+
+//Función para obtener el número que introduce la usuaria
+function getUserNumber (){
+    return parseInt(userNumberInput.value);
+    };
+
+//Función para comparar el número de la usuaria con el que genera el ordenador
+function checkNumbers(userNumber,randomNumber){
+
+    if(userNumber < 1 || userNumber > 100){
+        messageClue.innerHTML = 'El número debe estar entre 1 y 100.';
+    } else if (userNumber < randomNumber){
+        messageClue.innerHTML = '¡Ups! Demasiado bajo.';
+    } else if (userNumber > randomNumber){
+        messageClue.innerHTML = '¡Ups! Demasiado alto.';
+    } else{
+        messageClue.innerHTML = '¡Enhorabuena! ¡Ya lo tienes!';
+    }};
+
+   //Función para actualizar el contador de intentos
+  function updateCounter(){
+     numbercounter++
+    counter.innerHTML = numbercounter;
+};
+
+
+//FUNCIONES DE EVENTOS(HANDLERS)
+
+//Función manejadora del click del botón
+function handleClickButtonForm(event) {
+// 1. Traemos el número de la usuaria
+    const userNumber = getUserNumber();
+// 2. Comparamos con el número aleatorio del ordenador
+//      - Ponemos la pista
+    checkNumbers(userNumber,randomNumber);
+// 3.Actualizamos contador de intentos
+    updateCounter();
+};
 
 // EVENTOS
 
-gameButton.addEventListener('click', (event) =>{
-    event.preventDefault();
-    
-    const randomNumber = getRandomNumber(100);
-    //Mostramos en la consola el número aleatorio que se ha generado
-    console.log('número aleatorio:', randomNumber);
-    //Recogemos el valor del input de la usuaria
-    const userInput = parseInt(userNumber.value);
+buttonForm.addEventListener('click', handleClickButtonForm);
 
-    //Comprobamos que el input contiene un número entre 0 y 100
-    if(userInput < 1 || userInput > 100 || isNaN(userInput)) {
-        gameMessage.innerHTML = 'El número debe estar entre 1 y 100';
-    } else {
-        attemps++;
-        attempsCounter.innerHTML = attemps;
-         // Comparamos el número de la usuaria con el aleatorio
-    if(userInput > randomNumber){
-        gameMessage.innerHTML = '¡Hey! Demasiado alto';
-    } else if (userInput < randomNumber){
-        gameMessage.innerHTML = '¡Hey! Demasiado bajo';
-    } else {
-        gameMessage.innerHTML = '¡Enhorabuena! Has ganado campeona!!!';
-    }
-    }});
+// AL CARGAR LA PÁGINA
+
+Form.addEventListener('submit',(event) =>{
+    event.preventDefault();
+})
 
     
