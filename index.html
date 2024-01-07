@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
-<section class="container__game">
-    <h1 class="game__title">Adivina el número</h1>
-    <form class="game__Form">
-        <label for="userlabel">Introduce un número:</label>
-        <input class="userNumber js__userNumber"  type="text" id="guessNumber" required>
-        <input class="js__gameButton" type="submit" value="Prueba" id="playButton">
-    </form>
-    <p class="game__message js__gameMessage">Pista: Escribe el número y dale a prueba</p>
-
-    <p class="attemps__message">Número de intentos: <span class="attemps js__attempsCounter">0</span></p>
-
-</section>
+    <header>
+        <h1 class="game__title">Adivina el Número</h1>
+    </header>
+    <main>
+        <form class="js__form">
+            <label for="userNumber">Introduce aquí tu número</label>
+            <input class="js__userNumberInput" type="text" id="userNumber" name="userNumber">
+            <input class="js__buttonForm" type="submit" value="Prueba">
+        </form>
+        <p class="js__messageClue">Pista: Escribe el número y dale a Prueba</p>
+        <p>Número de intentos:<span class="js__counter">0</span></p>
+    </main>
 <script src="./Js/main.js"></script>
 </body>
 </html>
